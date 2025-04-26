@@ -14,7 +14,6 @@
 /system/media/audio/ringtones/SoundTheme/Galaxy/ACH_Sky_High.ogg
 /system/media/audio/ringtones/SoundTheme/Calm/ACH_Angels_Feather.ogg
 /system/media/audio/ringtones/SoundTheme/Calm/ACH_Sunrise.ogg
-/system/media/audio/ringtones/SoundTheme/Galaxy/ACH_Galaxy_Bells.ogg
 /system/media/audio/ringtones/SoundTheme/Galaxy/ACH_Moon_Discovery.ogg
 /system/media/audio/ringtones/SoundTheme/Retro/ACH_Retro_Love.ogg
 /system/media/audio/ringtones/SoundTheme/Galaxy/ACH_Satellite.ogg
@@ -46,6 +45,7 @@
 /system/media/audio/ringtones/SoundTheme/Galaxy/ACH_Chime_Time.ogg
 /system/media/audio/ringtones/SoundTheme/Fun/ACH_Raucous.ogg
 /system/media/audio/ringtones/SoundTheme/Galaxy/ACH_Cosmos.ogg
+/system/media/audio/ringtones/SoundTheme/Galaxy/ACH_Galaxy_Bells.ogg
 /system/media/audio/ringtones/SoundTheme/Galaxy/ACH_Quantum_Bell.ogg
 /system/media/audio/ringtones/SoundTheme/Galaxy/ACH_Asteroid.ogg
 /system/media/audio/ringtones/SoundTheme/Calm/ACH_Crystal_Echo.ogg
