@@ -20,15 +20,14 @@
 # - DO NOT add the partition name at the start of any entry (eg. "/system/dpolicy_system")
 # - DO NOT add a slash at the start of any entry (eg. "/dpolicy_system")
 
-# Overlays
+# General Bloat
 SYSTEM_DEBLOAT+="
-system/app/WifiRROverlayAppQC
-system/app/WifiRROverlayAppWifiLock
-"
-PRODUCT_DEBLOAT+="
-overlay/SoftapOverlay6GHz
-overlay/SoftapOverlayDualAp
-overlay/SoftapOverlayOWE
+system/app/MinusOnePage
+system/priv-app/AREmoji
+system/priv-app/AREmojiEditor
+system/priv-app/AvatarEmojiSticker
+system/tts/lang_SMT/vdata_es_MX_f00
+system/tts/lang_SMT/vdata_pt_BR_f00
 "
 
 # mAFPC
