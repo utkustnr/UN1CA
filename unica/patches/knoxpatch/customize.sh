@@ -8,7 +8,7 @@ APPLY_PATCH()
     DECODE_APK "$1"
 
     cd "$APKTOOL_DIR/$1"
-    PATCH="$SRC_DIR/unica/mods/knoxpatch/$2"
+    PATCH="$SRC_DIR/unica/patches/knoxpatch/$2"
     COMMIT_NAME="$(grep "^Subject:" "$PATCH" | sed 's/.*PATCH] //')"
     echo "Applying \"$COMMIT_NAME\" to /$1"
     OUT="$(patch -p1 -s -t -N --dry-run < "$PATCH")" \
@@ -19,8 +19,6 @@ APPLY_PATCH()
 # ]
 
 DELETE_FROM_WORK_DIR "system" "system/etc/public.libraries-wsm.samsung.txt"
-DELETE_FROM_WORK_DIR "system" "system/lib/libhal.wsm.samsung.so"
-DELETE_FROM_WORK_DIR "system" "system/lib/vendor.samsung.hardware.security.wsm.service-V1-ndk.so"
 DELETE_FROM_WORK_DIR "system" "system/lib64/libhal.wsm.samsung.so"
 DELETE_FROM_WORK_DIR "system" "system/lib64/vendor.samsung.hardware.security.wsm.service-V1-ndk.so"
 
