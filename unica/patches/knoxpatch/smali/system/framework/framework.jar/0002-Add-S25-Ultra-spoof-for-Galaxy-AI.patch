@@ -1,0 +1,113 @@
+From 20bf2997331a936b3486457b6ffcd8c2e3bc4f13 Mon Sep 17 00:00:00 2001
+From: utkustnr <utkuustuner@proton.me>
+Date: Sun, 27 Apr 2025 18:52:07 +0300
+Subject: [PATCH] Add S25 Ultra spoof for Galaxy AI
+
+Signed-off-by: utkustnr <utkuustuner@proton.me>
+---
+ .../ocin4ever/spoof/SamsungPropsHooks.smali   | 65 ++++++++++++++++++-
+ 1 file changed, 62 insertions(+), 3 deletions(-)
+
+diff --git a/smali_classes6/com/ocin4ever/spoof/SamsungPropsHooks.smali b/smali_classes6/com/ocin4ever/spoof/SamsungPropsHooks.smali
+index e76a4186..d6183b1d 100644
+--- a/smali_classes6/com/ocin4ever/spoof/SamsungPropsHooks.smali
++++ b/smali_classes6/com/ocin4ever/spoof/SamsungPropsHooks.smali
+@@ -18,6 +18,10 @@
+ 
+ .field private static final PACKAGE_TVPLUS:Ljava/lang/String; = "com.samsung.android.tvplus"
+ 
++.field private static final PACKAGE_AILANG:Ljava/lang/String; = "com.samsung.android.intellivoiceservice"
++
++.field private static final PACKAGE_GALAXYSTORE:Ljava/lang/String; = "com.sec.android.app.samsungapps"
++
+ .field private static final TAG:Ljava/lang/String; = "SamsungPropsHooks"
+ 
+ .field private static volatile sIsUserApp:Z
+@@ -186,15 +190,31 @@
+ 
+     move-result v0
+ 
+-    if-nez v0, :cond_5
++    if-nez v0, :cond_6
+ 
+     const-string v0, "com.netflix.mediaclient"
+ 
+     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    move-result p0
++    move-result v0
++
++    if-nez v0, :cond_4
++
++    const-string v0, "com.samsung.android.intellivoiceservice"
++
++    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
++
++    move-result v0
++
++    if-nez v0, :cond_5
+ 
+-    if-nez p0, :cond_4
++    const-string v0, "com.sec.android.app.samsungapps"
++
++    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
++
++    move-result v0
++
++    if-nez v0, :cond_5
+ 
+     goto :goto_3
+ 
+@@ -204,6 +224,11 @@
+     return-void
+ 
+     :cond_5
++    invoke-static {}, Lcom/ocin4ever/spoof/SamsungPropsHooks;->spoofAsS25U()V
++
++    return-void
++
++    :cond_6
+     const-string p0, "TYPE"
+ 
+     const-string v0, "userdebug"
+@@ -548,3 +573,37 @@
+ 
+     return-void
+ .end method
++
++.method private static spoofAsS25U()V
++    .locals 2
++
++    const-string v0, "BRAND"
++
++    const-string v1, "samsung"
++
++    invoke-static {v0, v1}, Lcom/ocin4ever/spoof/SamsungPropsHooks;->setBuildField(Ljava/lang/String;Ljava/lang/String;)V
++
++    const-string v0, "MANUFACTURER"
++
++    const-string v1, "samsung"
++
++    invoke-static {v0, v1}, Lcom/ocin4ever/spoof/SamsungPropsHooks;->setBuildField(Ljava/lang/String;Ljava/lang/String;)V
++
++    const-string v0, "DEVICE"
++
++    const-string v1, "pa3q"
++
++    invoke-static {v0, v1}, Lcom/ocin4ever/spoof/SamsungPropsHooks;->setBuildField(Ljava/lang/String;Ljava/lang/String;)V
++
++    const-string v0, "PRODUCT"
++
++    invoke-static {v0, v1}, Lcom/ocin4ever/spoof/SamsungPropsHooks;->setBuildField(Ljava/lang/String;Ljava/lang/String;)V
++
++    const-string v0, "MODEL"
++
++    const-string v1, "SM-S938B"
++
++    invoke-static {v0, v1}, Lcom/ocin4ever/spoof/SamsungPropsHooks;->setBuildField(Ljava/lang/String;Ljava/lang/String;)V
++
++    return-void
++.end method
+-- 
+2.49.0
+
