@@ -16,13 +16,40 @@
 #
 
 # UN1CA configuration file
-ROM_VERSION="2.5.6"
-ROM_VERSION+="-$(git rev-parse --short HEAD)"
+ROM_VERSION="OneUI7.0"
+ROM_VERSION+="-A736BXXUAFYD3"
 ROM_CODENAME="Eureka"
 
 # Source ROM firmware
 case "$TARGET_SINGLE_SYSTEM_IMAGE" in
-    # Qualcomm
+    "self")
+        SOURCE_FIRMWARE="SM-A736B/TUR/352828291234563"
+        SOURCE_EXTRA_FIRMWARES=()
+        SOURCE_API_LEVEL=35
+        SOURCE_PRODUCT_FIRST_API_LEVEL=31
+        SOURCE_VNDK_VERSION=30
+        SOURCE_HAS_SYSTEM_EXT=false
+        SOURCE_SUPER_GROUP_NAME="qti_dynamic_partitions"
+        # SEC Product Feature
+        SOURCE_AUDIO_SUPPORT_ACH_RINGTONE=false
+        SOURCE_AUDIO_SUPPORT_DUAL_SPEAKER=true
+        SOURCE_AUDIO_SUPPORT_VIRTUAL_VIBRATION=false
+        SOURCE_AUTO_BRIGHTNESS_TYPE="3"
+        SOURCE_DVFS_CONFIG_NAME="dvfs_policy_sm7325_xx"
+        SOURCE_FP_SENSOR_CONFIG="google_touch_display_optical,settings=3,no_delay_in_screen_off,transition_effect_on"
+        SOURCE_HAS_HW_MDNIE=false
+        SOURCE_HAS_MASS_CAMERA_APP=true
+        SOURCE_HAS_QHD_DISPLAY=false
+        SOURCE_HFR_MODE="2"
+        SOURCE_HFR_SUPPORTED_REFRESH_RATE="60,120"
+        SOURCE_HFR_DEFAULT_REFRESH_RATE="120"
+        SOURCE_IS_ESIM_SUPPORTED=false
+        SOURCE_MDNIE_SUPPORTED_MODES="55829"
+        SOURCE_MDNIE_WEAKNESS_SOLUTION_FUNCTION="3"
+        SOURCE_MULTI_MIC_MANAGER_VERSION="07010"
+        SOURCE_SSRM_CONFIG_NAME="siop_a73xq_sm7325"
+        SOURCE_SUPPORT_CUTOUT_PROTECTION=false
+        ;;
     "qssi")
         # Galaxy S23 (One UI 6.1.1)
         SOURCE_FIRMWARE="SM-S911B/EUX/352404911234563"
