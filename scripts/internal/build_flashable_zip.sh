@@ -54,9 +54,9 @@ PRINT_HEADER()
     echo    'ui_print(" ");'
     echo    'ui_print("****************************************");'
     echo -n 'ui_print("'
-    echo -n "UN1CA $ROM_VERSION for $TARGET_NAME"
+    echo -n "OneUI 7.0 (A736BXXUAFYD3) for $TARGET_NAME"
     echo    '");'
-    echo    'ui_print("Coded by salvo_giangri @XDAforums");'
+    echo    'ui_print("Brought to you by Frax3r @ XDAforums");'
     echo    'ui_print("****************************************");'
     echo -n 'ui_print("'
     echo -n "One UI version: $ONEUI_VERSION"
@@ -422,7 +422,7 @@ GENERATE_BUILD_INFO()
     true
 }
 
-FILE_NAME="UN1CA_${ROM_VERSION}_$(date +%Y%m%d)_${TARGET_CODENAME}"
+FILE_NAME="${ROM_VERSION}_$(date +%Y%m%d)_${TARGET_CODENAME}"
 CERT_NAME="aosp_testkey"
 $ROM_IS_OFFICIAL && [ -f "$SRC_DIR/security/unica_ota.pk8" ] && CERT_NAME="unica_ota"
 # ]
@@ -470,7 +470,7 @@ while read -r i; do
     img2sdat -o "$TMP_DIR" "$i" > /dev/null 2>&1 \
         && rm "$i"
     echo "Compressing $PARTITION.new.dat"
-    brotli --quality=6 --output="$TMP_DIR/$PARTITION.new.dat.br" "$TMP_DIR/$PARTITION.new.dat" \
+    brotli --quality=0 --output="$TMP_DIR/$PARTITION.new.dat.br" "$TMP_DIR/$PARTITION.new.dat" \
         && rm "$TMP_DIR/$PARTITION.new.dat"
 done <<< "$(find "$TMP_DIR" -mindepth 1 -maxdepth 1 -type f -name "*.img")"
 
@@ -489,7 +489,7 @@ GENERATE_BUILD_INFO
 
 echo "Creating zip"
 [ -f "$OUT_DIR/rom.zip" ] && rm -f "$OUT_DIR/rom.zip"
-cd "$TMP_DIR" ; zip -rq ../rom.zip ./* ; cd - &> /dev/null
+cd "$TMP_DIR" ; zip -rq --store ../rom.zip ./* ; cd - &> /dev/null
 
 echo "Signing zip"
 [ -f "$OUT_DIR/$FILE_NAME-sign.zip" ] && rm -f "$OUT_DIR/$FILE_NAME-sign.zip"
